@@ -1,0 +1,23 @@
+class Solution(object):
+    def findMedianSortedArrays(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: float
+        """
+        median = 0
+        lst = sorted(nums1 + nums2)  # Combine and sort the lists
+        length = len(lst)
+
+        if length % 2 == 0:
+    # For even length, take the average of the two middle elements
+            #print(float(lst[int(length/2) - 1] + lst[int(length/2)])/2)
+            median = (lst[length // 2 - 1] + lst[length // 2]) / 2.0
+
+        else:
+    # For odd length, take the middle element
+            median = lst[length // 2]
+
+        return median
+
+        
