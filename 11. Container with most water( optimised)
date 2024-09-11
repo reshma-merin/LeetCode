@@ -1,0 +1,22 @@
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        area = 0
+        lptr = 0
+        rptr = len(height) - 1
+        
+        while lptr < rptr:
+            # Calculate the height and width for the container
+            x = min(height[lptr], height[rptr])
+            y = rptr - lptr
+            ans = x * y
+            
+            # Update the maximum area
+            area = max(max_area, ans)
+            
+            # Move the pointer pointing to the smaller height
+            if height[lptr] < height[rptr]:
+                lptr += 1
+            else:
+                rptr -= 1
+        
+        return max_area
